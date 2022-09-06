@@ -25,6 +25,13 @@ f.write(str(soup))  #寫入*.txt檔案
 f.close()           #關閉檔案
 
 
+
+
+
+
+
+
+'''
 #print(soup.prettify())  #輸出排版後HTML
 #print(soup.title.string) #投信買賣超
 #print(soup.find_all(value='005'))
@@ -48,3 +55,4 @@ f.close()           #關閉檔案
 
 #ds_reset = s.set_index(0)
 #print(ds_reset)
+'''
