@@ -14,7 +14,7 @@ headers = {
 }
 
 url ="https://fubon-ebrokerdj.fbs.com.tw/Z/ZG/ZGK_DD.djhtm"
-user
+
 res = requests.get(url,headers=headers)
 soup = bs4.BeautifulSoup(res.text,"lxml")
 
