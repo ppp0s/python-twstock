@@ -5,6 +5,7 @@ from typing import Type
 import requests
 import bs4
 import time
+import os
 import pandas as pd
 
 #處理防爬蟲機制 (User-agent)
@@ -13,11 +14,13 @@ headers = {
 }
 
 url ="https://fubon-ebrokerdj.fbs.com.tw/Z/ZG/ZGK_DD.djhtm"
-
+user
 res = requests.get(url,headers=headers)
 soup = bs4.BeautifulSoup(res.text,"lxml")
 
-f = open("d:\\output.txt", "w",encoding='utf-8') #開啟檔案並指定編碼類型
+path = os.path.join(os.path.expanduser("~"), 'Desktop') +'\\' #'c:\\Users\\ppp0\\desktop'
+#f = open("d:\\output.txt", "w",encoding='utf-8') 
+f = open(path+"output.txt", "w",encoding='utf-8') #開啟檔案並指定編碼類型
 f.write(str(soup))  #寫入*.txt檔案
 f.close()           #關閉檔案
 
