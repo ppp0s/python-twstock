@@ -10,6 +10,10 @@ soup = bs4.BeautifulSoup(res.text,"html.parser")
 print(soup.prettify())  #輸出排版後HTML
 #print(soup.title.string) #投信買賣超
 
+print(soup.find_all(value='005'))
+for x in soup.find_all('option'):
+    print(x, end = "\n")
+
 #data = soup.select('table')[1]
 
 ##使用read_html建立DataFrame
