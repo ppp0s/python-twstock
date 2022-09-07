@@ -51,7 +51,7 @@ def ccdp(high,low,c):
 #print(round(Pt,2))
 
 if __name__ == '__main__': #主程式進入點
-    H = 120.5 #最高
-    L = 113.0 #最低
-    C = 119.0 #收
+    H = 380.0 #昨日最高
+    L = 358.0 #昨日最低
+    C = 360.0 #昨收
     ccdp(H,L,C)
