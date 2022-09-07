@@ -1,6 +1,10 @@
 #!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 
+from binascii import a2b_hex
+from pydoc import classname
+import string
+from subprocess import HIGH_PRIORITY_CLASS
 from typing import Type
 import requests
 import bs4
@@ -20,15 +24,34 @@ soup = bs4.BeautifulSoup(res.text,"lxml")
 
 path = os.path.join(os.path.expanduser("~"), 'Desktop') +'\\' #'c:\\Users\\ppp0\\desktop'
 #f = open("d:\\output.txt", "w",encoding='utf-8') 
-f = open(path+"output.txt", "w",encoding='utf-8') #開啟檔案並指定編碼類型
-f.write(str(soup))  #寫入*.txt檔案
-f.close()           #關閉檔案
+#f = open(path+"output.txt", "w",encoding='utf-8') #開啟檔案並指定編碼類型
+#f.write(str(soup))  #寫入*.txt檔案
+#f.close()           #關閉檔案
 
 '''
 print(soup.find_all("div", class_="t11")) # [<div class="t11">日期：09/06</div>]
 soup.find_all("html_element", class_="your_class_name") #find_all語法
 '''
-print(soup.find("div", class_="t11").string[3:]) # 日期：09/06 -> 0906
+#print(soup.find("div", class_="t11").string[3:]) # 日期：09/06 -> 0906
+
+H = 130.5 #最高
+L = 116.5 #最低
+C = 118.5 #收
+CDP = (H+L+2*C)/4
+Pt = H - L #震幅
+
+#print(round(Pt,2))
+
+ah = CDP + Pt
+nh = 2*CDP - L
+nl = 2*CDP - H
+al = CDP - Pt
+
+print(str(round(ah,2)))  #追買
+print(str(round(nh,2)))  #賣出
+print(str(round(CDP,2))) #CDP
+print(str(round(nl,2)))  #買進
+print(str(round(al,2)))  #追賣
 
 
 
