@@ -24,7 +24,11 @@ f = open(path+"output.txt", "w",encoding='utf-8') #開啟檔案並指定編碼�
 f.write(str(soup))  #寫入*.txt檔案
 f.close()           #關閉檔案
 
-
+'''
+print(soup.find_all("div", class_="t11")) # [<div class="t11">日期：09/06</div>]
+soup.find_all("html_element", class_="your_class_name") #find_all語法
+'''
+print(soup.find("div", class_="t11").string[3:]) # 日期：09/06 -> 0906
 
 
 
