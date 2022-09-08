@@ -1,0 +1,1 @@
+=IF(B2="","", IFERROR(GOOGLEFINANCE("TPE:"&B2),importxml("https://histock.tw/stock/" & B2,"//*[@id='Price1_lbTPrice']")))
